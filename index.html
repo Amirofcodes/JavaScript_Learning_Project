@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock and Shopping List</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul class="navbar">
+        <li><a href="#" id="toggle-bg-color">Toggle Background Color</a></li>
+        <li><a href="#" id="toggle-sound">Toggle Sound Effects</a></li>
+        <li><a href="#" id="reload-page">Reload Page</a></li>
+      </ul>
+    </nav>
+
+    <h1 id="clock-title">Horloge</h1>
+    <div id="horloge"></div>
+
+    <h1>Liste de courses</h1>
+    <div class="container" id="shopping-list-container">
+      <input type="text" id="itemInput" placeholder="Ajouter un article" />
+      <button id="addButton">OK</button>
+      <button id="deleteButton">Supprime</button>
+      <button id="downloadButton">Télécharger</button>
+      <ul id="shoppingList"></ul>
+    </div>
+
+    <div id="popup" class="popup"></div>
+  </body>
+</html>

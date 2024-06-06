@@ -1,0 +1,147 @@
+/* Styles for the clock */
+#horloge {
+    font-size: 2rem;
+    text-align: center;
+    border: 1px solid black;
+    display: inline-block;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    top: 30%; /* Adjusted to accommodate the navigation bar */
+    transform: translate(-50%, -50%);
+}
+
+#horloge:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styles for the shopping list */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+button#addButton {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button#deleteButton {
+    background-color: #f44336;
+    color: white;
+}
+
+button#downloadButton {
+    background-color: #2196F3;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #eee;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Styles for the navbar */
+nav {
+    background-color: #333;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    background-color: #444; /* Initial background color for better visibility */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #111;
+}
+
+/* Style for toggle button when enabled */
+.navbar li a.toggle-on {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Fade transition for background color change */
+body {
+    transition: background-color 1s ease;
+}
+
+/* Styles for the popup */
+.popup {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 300px;
+    white-space: pre-wrap;
+}
