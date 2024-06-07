@@ -173,6 +173,127 @@ function reloadPage() {
     location.reload();
 }
 
+// Calculator functionality
+let calculatorDisplay;
+let currentInput = '';
+let previousInput = '';
+let operator = '';
+
+function initializeCalculator() {
+    calculatorDisplay = document.getElementById('calculator-display');
+    calculatorDisplay.value = '0';
+    calculatorDisplay.focus();
+
+    const buttons = document.querySelectorAll('.calc-button');
+    buttons.forEach(button => {
+        button.addEventListener('click', handleButtonClick);
+    });
+
+    calculatorDisplay.addEventListener('keydown', handleKeyPress);
+}
+
+function handleButtonClick(event) {
+    const value = event.target.innerText;
+
+    if (!isNaN(value) || value === '.') {
+        handleNumber(value);
+    } else if (value === 'CE') {
+        resetCalculator();
+    } else if (value === '±') {
+        toggleSign();
+    } else if (value === '=') {
+        calculateResult();
+    } else {
+        handleOperator(value);
+    }
+}
+
+function handleKeyPress(event) {
+    const key = event.key;
+
+    if (!isNaN(key) || key === '.') {
+        handleNumber(key);
+    } else if (key === 'Delete') {
+        resetCalculator();
+    } else if (key === '=' || key === 'Enter') {
+        event.preventDefault();
+        calculateResult();
+    } else if (['+', '-', '*', '/', '%'].includes(key)) {
+        event.preventDefault();
+        handleOperator(key);
+    }
+}
+
+function handleNumber(value) {
+    if (currentInput.includes('.') && value === '.') return;
+
+    currentInput = currentInput === '0' ? value : currentInput + value;
+    updateDisplay();
+}
+
+function handleOperator(op) {
+    if (currentInput === '') return;
+
+    if (previousInput !== '') {
+        calculateResult();
+    }
+
+    operator = op;
+    previousInput = currentInput;
+    currentInput = '';
+}
+
+function calculateResult() {
+    if (currentInput === '' || previousInput === '') return;
+
+    let result;
+
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(currentInput);
+
+    switch (operator) {
+        case '+':
+            result = prev + current;
+            break;
+        case '-':
+            result = prev - current;
+            break;
+        case '*':
+            result = prev * current;
+            break;
+        case '/':
+            result = prev / current;
+            break;
+        case '%':
+            result = prev % current;
+            break;
+        default:
+            return;
+    }
+
+    currentInput = result.toString();
+    operator = '';
+    previousInput = '';
+    updateDisplay();
+}
+
+function toggleSign() {
+    if (currentInput === '') return;
+    currentInput = (parseFloat(currentInput) * -1).toString();
+    updateDisplay();
+}
+
+function resetCalculator() {
+    currentInput = '';
+    previousInput = '';
+    operator = '';
+    updateDisplay();
+}
+
+function updateDisplay() {
+    calculatorDisplay.value = currentInput === '' ? '0' : currentInput;
+}
+
 // Add event listener to track mouse movement
 document.addEventListener('mousemove', moveClock);
 
@@ -243,4 +364,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     reloadPageButton.addEventListener('click', reloadPage);
 
     document.getElementById('form').addEventListener('submit', validateForm);
+
+    // Initialize the calculator
+    initializeCalculator();
 });

@@ -52,7 +52,7 @@ input[type="text"], input[type="tel"], input[type="password"], input[type="email
     margin-bottom: 10px;
 }
 
-button, .submitButton {
+button, .submitButton, .calc-button {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -61,7 +61,7 @@ button, .submitButton {
     cursor: pointer;
 }
 
-button#addButton, .submitButton {
+button#addButton, .submitButton, .calc-button {
     background-color: #4CAF50;
     color: white;
 }
@@ -144,4 +144,41 @@ body {
     z-index: 1000;
     max-width: 300px;
     white-space: pre-wrap;
+}
+
+/* Styles for the calculator */
+#calculator-container {
+    margin-top: 20px;
+}
+
+#calculator-display {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-button {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calc-button:hover {
+    background-color: #45a049;
 }
