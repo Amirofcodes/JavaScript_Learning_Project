@@ -1,12 +1,12 @@
-# JavaScript_Learning_Project
+# JavaScript Learning Project
 
-Welcome to my first JavaScript project! This project includes a digital clock, a shopping list, and interactive buttons to control background color changes, sound effects, and page reloads. The purpose of this project is to learn and demonstrate fundamental JavaScript concepts.
+Welcome to my first JavaScript project! This project includes a digital clock, a shopping list, a registration form, and a calculator. The purpose of this project is to learn and demonstrate fundamental JavaScript concepts.
 
 ## Project Features
 
 ### Digital Clock
 - **Description**: Displays the current time, updated every second.
-- **Interactivity**: The clock moves away from the cursor when hovered over.
+- **Interactivity**: The clock moves away from the cursor when hovered over and resets to its initial position above the title when double-clicked.
 - **Implementation**: Uses `setInterval` to update the clock every second and event listeners to track mouse movements and reposition the clock.
 
 ### Shopping List
@@ -16,6 +16,28 @@ Welcome to my first JavaScript project! This project includes a digital clock, a
   - Remove the last item using the "Supprime" button.
   - Download the list as a text file using the "Télécharger" button.
 - **Implementation**: Utilizes event listeners for button clicks to manage the shopping list items.
+
+### Formulaire d'inscription
+- **Description**: A registration form with validation for each input field.
+- **Fields**: Prénom, Nom, Email, Téléphone, Mot de passe.
+- **Validation**: 
+  - Prénom, Nom: Required.
+  - Email: Required and must be in a valid email format.
+  - Téléphone: Required, must be numeric and have a maximum length of 10.
+  - Mot de passe: Required, must be at least 8 characters long and contain at least one special character (!, ?, #).
+- **Implementation**: Form validation on submit, with error messages displayed in a div. Uses regex for validation checks.
+
+### Calculator
+- **Description**: A basic calculator that performs arithmetic operations.
+- **Operations**: Addition, Subtraction, Multiplication, Division, Modulo.
+- **Additional Functions**: 
+  - Toggle positive/negative sign.
+  - Support for decimal numbers.
+  - Reset (CE) functionality.
+- **Interactivity**: 
+  - Supports button clicks for operations.
+  - Supports keyboard input for operations and reset (Delete key).
+- **Implementation**: Event listeners for button clicks and keydown events to handle calculator operations and updates the display.
 
 ### Navigation Bar
 - **Buttons**:
@@ -31,24 +53,20 @@ Welcome to my first JavaScript project! This project includes a digital clock, a
 
 ## Upcoming Features
 
-### Form
-- **Description**: A form to collect user inputs and display the entered data.
-- **Implementation**: Will use form elements and event listeners to handle form submissions and validations.
-
-### Calculator
-- **Description**: A basic calculator to perform arithmetic operations.
-- **Implementation**: Will use JavaScript to handle calculator button clicks and perform calculations.
+### Advanced Form and Calculator Features
+- **Description**: Enhance the form with real-time validation feedback and add advanced calculator functions like square roots and exponents.
+- **Implementation**: Utilize JavaScript event listeners and DOM manipulation to provide a more interactive user experience.
 
 ## How to Run the Project
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/javascript-learning-project.git
+    git clone https://github.com/your-username/JavaScript_Learning_Project.git
     ```
 
 2. **Navigate to the project directory**:
     ```bash
-    cd javascript-learning-project
+    cd JavaScript_Learning_Project
     ```
 
 3. **Open `index.html` in a web browser** to see the project in action.
