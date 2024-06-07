@@ -69,10 +69,15 @@ function updateClock() {
 // Update the clock every second
 setInterval(updateClock, 1000);
 
-const initialClockPosition = {
-    left: '50%',
-    top: '30%' // Adjusted to accommodate the navigation bar
-};
+function setInitialClockPosition() {
+    const clockTitle = document.getElementById('clock-title');
+    const clockDiv = document.getElementById('horloge');
+    const clockTitleRect = clockTitle.getBoundingClientRect();
+
+    // Set the initial position of the clock above the <h1> element
+    clockDiv.style.left = `${clockTitleRect.left + clockTitleRect.width / 2}px`;
+    clockDiv.style.top = `${clockTitleRect.top - clockDiv.offsetHeight - 10}px`;
+}
 
 const moveSound = new Audio('move.mp3');
 const resetSound = new Audio('reset.mp3');
@@ -130,9 +135,7 @@ function moveClock(event) {
 
 // Function to reset clock position
 function resetClockPosition() {
-    const clockDiv = document.getElementById('horloge');
-    clockDiv.style.left = initialClockPosition.left;
-    clockDiv.style.top = initialClockPosition.top;
+    setInitialClockPosition();
 
     // Play reset sound if enabled
     if (soundEnabled) {
@@ -367,4 +370,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Initialize the calculator
     initializeCalculator();
+    // Set initial clock position
+    setInitialClockPosition();
 });
