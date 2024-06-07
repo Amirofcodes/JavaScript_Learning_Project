@@ -43,7 +43,7 @@ h1 {
     margin-top: 20px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="tel"], input[type="password"], input[type="email"] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -52,7 +52,7 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
-button {
+button, .submitButton {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -61,7 +61,7 @@ button {
     cursor: pointer;
 }
 
-button#addButton {
+button#addButton, .submitButton {
     background-color: #4CAF50;
     color: white;
 }

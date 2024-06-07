@@ -1,3 +1,59 @@
+// Function to show the popup with a simplified explanation of the JS code
+function showPopup(event, explanation) {
+    const popup = document.getElementById('popup');
+    popup.innerText = explanation;
+    popup.style.left = `${event.clientX + 10}px`;
+    popup.style.top = `${event.clientY + 10}px`;
+    popup.style.display = 'block';
+}
+
+// Function to hide the popup
+function hidePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+// Function to validate form inputs
+function validateForm(event) {
+    event.preventDefault();
+    let errors = [];
+    const prenom = document.getElementById('prenom').value.trim();
+    const nom = document.getElementById('nom').value.trim();
+    const email = document.getElementById('mail').value.trim();
+    const tel = document.getElementById('tel').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/;
+    const passwordRegex = /^(?=.*[!?#]).{8,}$/;
+
+    if (!prenom) {
+        errors.push("Prénom est requis.");
+    }
+    if (!nom) {
+        errors.push("Nom est requis.");
+    }
+    if (!email || !emailRegex.test(email)) {
+        errors.push("Email est requis et doit respecter un format de mail.");
+    }
+    if (!tel || !phoneRegex.test(tel)) {
+        errors.push("Téléphone est requis et doit contenir uniquement des chiffres avec une longueur maximale de 10.");
+    }
+    if (!password || !passwordRegex.test(password)) {
+        errors.push("Mot de passe est requis, doit avoir au moins 8 caractères et contenir au moins un caractère spécial (!, ?, #).");
+    }
+
+    const erreurDiv = document.getElementById('erreur');
+    if (errors.length > 0) {
+        erreurDiv.innerHTML = errors.join('<br>');
+        erreurDiv.style.display = 'block';
+    } else {
+        erreurDiv.style.display = 'none';
+        alert('Formulaire soumis avec succès!');
+        // Submit the form programmatically if no errors
+        document.getElementById('form').submit();
+    }
+}
+
 // Clock functionality
 function updateClock() {
     const now = new Date();
@@ -117,21 +173,6 @@ function reloadPage() {
     location.reload();
 }
 
-// Function to show the popup with a simplified explanation of the JS code
-function showPopup(event, explanation) {
-    const popup = document.getElementById('popup');
-    popup.innerText = explanation;
-    popup.style.left = `${event.clientX + 10}px`;
-    popup.style.top = `${event.clientY + 10}px`;
-    popup.style.display = 'block';
-}
-
-// Function to hide the popup
-function hidePopup() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'none';
-}
-
 // Add event listener to track mouse movement
 document.addEventListener('mousemove', moveClock);
 
@@ -200,4 +241,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     toggleBgColorButton.addEventListener('click', toggleBackgroundColor);
     toggleSoundButton.addEventListener('click', toggleSoundEffects);
     reloadPageButton.addEventListener('click', reloadPage);
+
+    document.getElementById('form').addEventListener('submit', validateForm);
 });
